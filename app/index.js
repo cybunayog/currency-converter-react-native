@@ -4,6 +4,7 @@ import Home from './screens/Home';
 import CurrencyList from './screens/CurrencyList';
 import Options from './screens/Options';
 import Themes from './screens/Themes';
+import Navigator from './config/routes';
 
 EStylesheet.build({
   $primaryBlue: '#4F6D7A',
@@ -18,4 +19,4 @@ EStylesheet.build({
   $darkText: '#343434',
 });
 
-export default () => <Themes />;
+export default () => <Navigator />;
