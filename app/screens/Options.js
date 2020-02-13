@@ -12,6 +12,7 @@ const ICON_SIZE = 23;
 class Options extends Component {
   static propTypes = {
     navigation: PropTypes.object,
+    alertWithType: PropTypes.func,
   };
   handleThemesPress = () => {
     console.log('press themes');
@@ -20,7 +21,13 @@ class Options extends Component {
 
   handleSitePress = () => {
     console.log('press site');
-    Linking.openURL('https://fixer.io/').catch(() => alert('An error occured'));
+    Linking.openURL('https://fixer.io/').catch(() =>
+      this.props.alertWithType(
+        'error',
+        'Sorry!',
+        "Fixer.io can't be opened right now.",
+      ),
+    );
   };
 
   render() {

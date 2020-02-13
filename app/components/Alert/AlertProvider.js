@@ -14,16 +14,17 @@ class AlertProvider extends Component {
   };
 
   getChildContext() {
-    return (
+    return {
       alert: (...args) => this.dropdown.alert(...args),
       alertWithType: (...args) => this.dropdown.alertWithType(...args),
-    );
+    };
   }
 
-  render () {
+  render() {
+    const {children} = this.props;
     return (
       <View style={{flex: 1}}>
-        {React.Children.only(this.props.children)}
+        {React.Children.only(children)}
         <DropdownAlert
           ref={ref => {
             this.dropdown = ref;
@@ -33,3 +34,5 @@ class AlertProvider extends Component {
     );
   }
 }
+
+export default AlertProvider;

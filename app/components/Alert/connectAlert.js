@@ -5,11 +5,12 @@ import hoistNonReactStatic from 'hoist-non-react-statics';
 const connectAlert = WrappedContent => {
   class ConnectedAlert extends Component {
     render() {
+      const {alertWithType, alert} = this.context;
       return (
         <WrappedContent
           {...this.props}
-          alertWithType={this.context.alertWithType}
-          alert={this.context.alert}
+          alertWithType={alertWithType}
+          alert={alert}
         />
       );
     }
